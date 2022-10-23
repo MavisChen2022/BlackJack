@@ -18,6 +18,8 @@ namespace BlackJack
         static int count=0;
         static int num = 0;
         static int correspondPoint = 0;
+        static List<string> playerNow=new List<string>();
+        static List<string> DealerNow = new List<string>();
         public Form1()
         {
             InitializeComponent();
@@ -90,7 +92,6 @@ namespace BlackJack
         }
         public void Correspond(string x)
         {
-            int point = 0;
             correspondPoint = 0;
             if (Spade.spadeDict.ContainsKey(x))
             {
@@ -118,6 +119,7 @@ namespace BlackJack
             Remaing();
             string card = emptyPoker[num];
             Correspond(emptyPoker[num]);
+            playerNow.Add(correspondPoint.ToString());
             PlayerCard.Text += card;
             PlayerPoint.Text = (int.Parse(PlayerPoint.Text)+ correspondPoint).ToString();
             num++;
@@ -128,6 +130,7 @@ namespace BlackJack
             Remaing();
             string card = emptyPoker[num];
             Correspond(emptyPoker[num]);
+            DealerNow.Add(correspondPoint.ToString());
             DealerCard.Text += card;
             DealerPoint.Text = (int.Parse(DealerPoint.Text) + correspondPoint).ToString();
             num++;
@@ -147,9 +150,9 @@ namespace BlackJack
         }
         public void DealFunction()
         {
-            
             PlayerAdd();
             PlayerAdd();
+            SomeOneChickenDinner(playerNow);
             DealerAdd();
             DealerAdd();
             if (Rule.DealNotOver18(int.Parse(DealerPoint.Text)) == false)
@@ -174,6 +177,14 @@ namespace BlackJack
         {
             int minusCard = 1;
             RemaingCard.Text=(int.Parse(RemaingCard.Text)- minusCard ).ToString();
+        }
+        public void SomeOneChickenDinner(List<string> now)
+        {
+            if(Rule.ChickenDinner(now, "1", "10")==true)
+            {
+                MessageBox.Show("Winner Winner Chicken Dinner!");
+                Again();
+            }
         }
         private void PlayerAddCard_Click(object sender, EventArgs e)
         {
@@ -202,6 +213,7 @@ namespace BlackJack
 
         private void Pass_Click(object sender, EventArgs e)
         {
+            SomeOneChickenDinner(DealerNow);
             DealerAddCard.Enabled = true;
             Pass.Enabled = false;
             PlayerAddCard.Enabled = false;

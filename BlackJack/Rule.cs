@@ -42,5 +42,41 @@ namespace BlackJack
                 return false;
             }
         }
+        public static bool ChickenDinner(List<string> now,string ace,string jqk)
+        {
+            if(now.Count==2)
+            {
+                if(now.Contains(ace))
+                {
+                    if(now.Contains(jqk))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else if(now.Contains(jqk))
+                {
+                    if (now.Contains(ace))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false ;
+            }
+        }
     }
 }
