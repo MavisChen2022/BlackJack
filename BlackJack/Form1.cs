@@ -115,23 +115,23 @@ namespace BlackJack
         }
         public void PlayerAdd()
         {
-            ResetCard();
             Remaing();
             string card = emptyPoker[num];
             Correspond(emptyPoker[num]);
             PlayerCard.Text += card;
             PlayerPoint.Text = (int.Parse(PlayerPoint.Text)+ correspondPoint).ToString();
             num++;
+            ResetCard();
         }
         public void DealerAdd()
         {
-            ResetCard();
             Remaing();
             string card = emptyPoker[num];
             Correspond(emptyPoker[num]);
             DealerCard.Text += card;
             DealerPoint.Text = (int.Parse(DealerPoint.Text) + correspondPoint).ToString();
             num++;
+            ResetCard();
         }
         public void Again()
         {
@@ -225,6 +225,7 @@ namespace BlackJack
             PlayerAddCard.Enabled = true;
             Pass.Enabled = true;
             Deal.Enabled = false;
+            Start.Enabled = false;
         }
     }
 }

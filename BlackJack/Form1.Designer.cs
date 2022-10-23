@@ -229,10 +229,10 @@
             // 
             // Start
             // 
-            this.Start.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Start.BackColor = System.Drawing.SystemColors.Control;
             this.Start.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Start.ForeColor = System.Drawing.Color.Black;
-            this.Start.Location = new System.Drawing.Point(575, 293);
+            this.Start.Location = new System.Drawing.Point(789, 60);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(148, 53);
             this.Start.TabIndex = 15;
