@@ -147,7 +147,7 @@ namespace BlackJack
         }
         public void DealFunction()
         {
-            ChooseCard();
+            
             PlayerAdd();
             PlayerAdd();
             DealerAdd();
@@ -216,6 +216,15 @@ namespace BlackJack
         {
             Rule.Winner(int.Parse(PlayerPoint.Text), int.Parse(DealerPoint.Text));
             Again();
+        }
+
+        private void Start_Click(object sender, EventArgs e)
+        {
+            ChooseCard();
+            DealFunction();
+            PlayerAddCard.Enabled = true;
+            Pass.Enabled = true;
+            Deal.Enabled = false;
         }
     }
 }

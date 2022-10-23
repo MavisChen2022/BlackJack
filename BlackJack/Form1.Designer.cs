@@ -43,6 +43,7 @@
             this.CheckWinner = new System.Windows.Forms.Button();
             this.Remain = new System.Windows.Forms.Label();
             this.RemaingCard = new System.Windows.Forms.Label();
+            this.Start = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LB1
@@ -182,8 +183,9 @@
             // 
             // Deal
             // 
+            this.Deal.Enabled = false;
             this.Deal.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.Deal.ForeColor = System.Drawing.Color.Black;
+            this.Deal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.Deal.Location = new System.Drawing.Point(789, 434);
             this.Deal.Name = "Deal";
             this.Deal.Size = new System.Drawing.Size(148, 53);
@@ -225,12 +227,26 @@
             this.RemaingCard.TabIndex = 14;
             this.RemaingCard.Text = "52";
             // 
+            // Start
+            // 
+            this.Start.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.Start.Font = new System.Drawing.Font("微軟正黑體", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.Start.ForeColor = System.Drawing.Color.Black;
+            this.Start.Location = new System.Drawing.Point(575, 293);
+            this.Start.Name = "Start";
+            this.Start.Size = new System.Drawing.Size(148, 53);
+            this.Start.TabIndex = 15;
+            this.Start.Text = "開啟新局";
+            this.Start.UseVisualStyleBackColor = false;
+            this.Start.Click += new System.EventHandler(this.Start_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::BlackJack.Properties.Resources.table;
             this.ClientSize = new System.Drawing.Size(963, 640);
+            this.Controls.Add(this.Start);
             this.Controls.Add(this.RemaingCard);
             this.Controls.Add(this.Remain);
             this.Controls.Add(this.CheckWinner);
@@ -270,6 +286,7 @@
         private System.Windows.Forms.Button CheckWinner;
         private System.Windows.Forms.Label Remain;
         private System.Windows.Forms.Label RemaingCard;
+        private System.Windows.Forms.Button Start;
     }
 }
 
