@@ -152,7 +152,6 @@ namespace BlackJack
         {
             PlayerAdd();
             PlayerAdd();
-            SomeOneChickenDinner(playerNow);
             DealerAdd();
             DealerAdd();
             if (Rule.DealNotOver18(int.Parse(DealerPoint.Text)) == false)
@@ -162,6 +161,7 @@ namespace BlackJack
             PlayerAddCard.Enabled = true;
             Pass.Enabled = true;
             Deal.Enabled = false;
+
         }
         public void ResetCard()
         {
@@ -180,7 +180,7 @@ namespace BlackJack
         }
         public void SomeOneChickenDinner(List<string> now)
         {
-            if(Rule.ChickenDinner(now, "1", "10")==true)
+            if(Rule.ChickenDinner(now)==true)
             {
                 MessageBox.Show("Winner Winner Chicken Dinner!");
                 Again();
@@ -222,6 +222,7 @@ namespace BlackJack
         private void Deal_Click(object sender, EventArgs e)
         {
             DealFunction();
+            SomeOneChickenDinner(playerNow);
         }
 
         private void CheckWinner_Click(object sender, EventArgs e)
