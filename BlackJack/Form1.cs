@@ -184,6 +184,7 @@ namespace BlackJack
             {
                 MessageBox.Show("Winner Winner Chicken Dinner!");
                 Again();
+                now.Clear();
             }
         }
         private void PlayerAddCard_Click(object sender, EventArgs e)

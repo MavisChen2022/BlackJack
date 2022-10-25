@@ -45,9 +45,16 @@ namespace BlackJack
         public static bool ChickenDinner(List<string> now)
         {
             List<string> chickenDinner = new List<string>() { "1","10"};
-            var check=now.Where(i=>chickenDinner.Contains(i)).ToList();
-            bool contain = check.Count != 0;
-            return true;
+            var check=now.Except(chickenDinner).ToList();
+            bool contain = check.Count == 0;
+            if(contain==true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
