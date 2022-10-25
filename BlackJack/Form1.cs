@@ -183,9 +183,10 @@ namespace BlackJack
             if(Rule.ChickenDinner(now)==true)
             {
                 MessageBox.Show("Winner Winner Chicken Dinner!");
-                Again();
                 now.Clear();
+                Again();
             }
+            now.Clear();
         }
         private void PlayerAddCard_Click(object sender, EventArgs e)
         {
