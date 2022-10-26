@@ -150,6 +150,8 @@ namespace BlackJack
         }
         public void DealFunction()
         {
+            playerNow = new List<string>();
+            DealerNow = new List<string>();
             PlayerAdd();
             PlayerAdd();
             DealerAdd();
@@ -188,6 +190,14 @@ namespace BlackJack
             }
             now.Clear();
         }
+        public void DealerAutoAddCard(int point)
+        {
+            if (point < 18)
+            {
+                DealerAdd();
+            }
+            Rule.Winner(int.Parse(PlayerPoint.Text), int.Parse(DealerPoint.Text));
+        }
         private void PlayerAddCard_Click(object sender, EventArgs e)
         {
             PlayerAdd();
@@ -216,9 +226,11 @@ namespace BlackJack
         private void Pass_Click(object sender, EventArgs e)
         {
             SomeOneChickenDinner(DealerNow);
-            DealerAddCard.Enabled = true;
+            DealerAutoAddCard(int.Parse(DealerPoint.Text));
+            Again();
+            /*DealerAddCard.Enabled = true;
             Pass.Enabled = false;
-            PlayerAddCard.Enabled = false;
+            PlayerAddCard.Enabled = false;*/
         }
 
         private void Deal_Click(object sender, EventArgs e)
