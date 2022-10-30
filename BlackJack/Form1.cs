@@ -169,10 +169,10 @@ namespace BlackJack
         {
             if(num==41)
             {
-                emptyPoker = new string[52];
+                Array.Clear(emptyPoker,0, emptyPoker.Length);
                 num = 0;
                 ChooseCard();
-                RemaingCard.Text = "52";
+                RemaingCard.Text = (emptyPoker.Length).ToString();
             }
         }
         public void Remaing()
@@ -192,9 +192,13 @@ namespace BlackJack
         }
         public void DealerAutoAddCard(int point)
         {
-            if (point < 18)
+            while (point < 18)
             {
                 DealerAdd();
+                if(point>=18)
+                {
+                    break;
+                }
             }
             Rule.Winner(int.Parse(PlayerPoint.Text), int.Parse(DealerPoint.Text));
         }
@@ -226,11 +230,11 @@ namespace BlackJack
         private void Pass_Click(object sender, EventArgs e)
         {
             SomeOneChickenDinner(DealerNow);
-            DealerAutoAddCard(int.Parse(DealerPoint.Text));
-            Again();
-            /*DealerAddCard.Enabled = true;
+            //DealerAutoAddCard(int.Parse(DealerPoint.Text));
+            //Again();
+            DealerAddCard.Enabled = true;
             Pass.Enabled = false;
-            PlayerAddCard.Enabled = false;*/
+            PlayerAddCard.Enabled = false;
         }
 
         private void Deal_Click(object sender, EventArgs e)
