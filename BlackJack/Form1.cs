@@ -171,6 +171,10 @@ namespace BlackJack
             {
                 Array.Clear(emptyPoker,0, emptyPoker.Length);
                 num = 0;
+                Spade.result = "";
+                Heart.result = "";
+                Diamond.result = "";
+                Club.result = "";
                 ChooseCard();
                 RemaingCard.Text = (emptyPoker.Length).ToString();
             }
